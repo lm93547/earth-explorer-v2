@@ -11,6 +11,10 @@ import injectReducer from '../../utils/injectReducer';
 import appReducer from './reducer';
 import  {ToastContainer}  from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Map} from '../Map';
+import mapSaga from '../Map/saga';
+import mapReducer from '../Map/reducer';
+import makeSelectMap from '../Map/selectors';
 
 function App({dispatch, app, map,...props}) {
 
@@ -21,7 +25,7 @@ function App({dispatch, app, map,...props}) {
           <Routes>
                 <Route 
                   path="/"           
-                  element={<>Test</>} 
+                  element={<Map app={app}/>} 
                 />
           </Routes>
           </div>
@@ -31,6 +35,7 @@ function App({dispatch, app, map,...props}) {
 
 const mapStateToProps = createStructuredSelector({
   app: makeSelectApp(),
+  map: makeSelectMap()
 })
 
 function mapDispatchToProps(dispatch) {
@@ -47,5 +52,7 @@ const withConnect = connect(
 export default compose(
     injectSaga({key: 'app', saga: appSaga}),
     injectReducer({key: 'app', reducer: appReducer}),
+    injectSaga({key: 'map', saga: mapSaga}),
+    injectReducer({key: 'map', reducer: mapReducer}),
     withConnect
 )(App);

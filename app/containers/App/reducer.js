@@ -1,13 +1,14 @@
-import * as consts from './constants';
+import * as consts from "./constants";
+import produce from "immer";
 
-export const initialState = {
-};
+export const initialState = {};
 
-function appReducer(state =initialState, action) {
+const appReducer = (state = initialState, action) =>
+  produce(state, (/* draft */) => {
     switch (action.type) {
-       default:
-          return {...state}
+      default:
+        return { ...state };
     }
-}
+  });
 
-export default appReducer
+export default appReducer;

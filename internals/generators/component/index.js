@@ -62,6 +62,12 @@ module.exports = {
       },
       {
         type: 'add',
+        path: '../../app/components/{{properCase name}}/{{properCase name}}.stories.js',
+        templateFile: './component/component.stories.js.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
         path: '../../cypress/integration/components/{{properCase name}}.spec.js',
         templateFile: './component/test.spec.js.hbs',
         abortOnFail: true,
