@@ -60,6 +60,12 @@ module.exports = {
         templateFile: './component/style.css.hbs',
         abortOnFail: true,
       },
+      {
+        type: 'add',
+        path: '../../cypress/integration/components/{{properCase name}}.spec.js',
+        templateFile: './component/test.spec.js.hbs',
+        abortOnFail: true,
+      },
     ];
 
     // If the user wants Loadable.js to load the component asynchronously

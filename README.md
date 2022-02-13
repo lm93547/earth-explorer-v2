@@ -35,3 +35,14 @@
     * Runs Cypress tests in GUI mode
 * ```yarn cypress-headless```
     * Run Cypress in CLI mode
+
+# Roadmap
+* UI Components
+    * Header
+        * Tests
+        * Mobile Responsive
+    * Sidebar
+        * Tests
+        * Mobile Responsive
+* Map Container
+* Github actions
