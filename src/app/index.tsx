@@ -29,8 +29,8 @@ export function App() {
       </Helmet>
 
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
+        <Route path="/" element={<HomePage />} />
+        <Route element={<NotFoundPage />} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>
