@@ -1,6 +1,0 @@
-/*
- *
- * AppNew constants
- *
- */
-
