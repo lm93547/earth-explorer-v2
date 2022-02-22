@@ -8,31 +8,43 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
-
+import { Grommet } from 'grommet';
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+
+const theme = {
+  global: {
+    font: {
+      family: 'Roboto',
+      size: '14px',
+      height: '20px',
+    },
+  },
+};
 
 export function App() {
   const { i18n } = useTranslation();
   return (
     <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-        htmlAttributes={{ lang: i18n.language }}
-      >
-        <meta name="description" content="A React Boilerplate application" />
-      </Helmet>
+      <Grommet full theme={theme}>
+        <Helmet
+          titleTemplate="%s - React Boilerplate"
+          defaultTitle="React Boilerplate"
+          htmlAttributes={{ lang: i18n.language }}
+        >
+          <meta name="description" content="A React Boilerplate application" />
+        </Helmet>
 
-      <Switch>
-        <Route path="/" element={<HomePage />} />
-        <Route element={<NotFoundPage />} />
-      </Switch>
-      <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route element={<NotFoundPage />} />
+        </Routes>
+        {/* <GlobalStyle /> */}
+      </Grommet>
     </BrowserRouter>
   );
 }
