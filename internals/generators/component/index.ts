@@ -98,8 +98,8 @@ export const componentGenerator: PlopGeneratorConfig = {
     if (answers.wantTests) {
       actions.push({
         type: 'add',
-        path: `${componentPath}/__tests__/index.test.tsx`,
-        templateFile: './component/index.test.tsx.hbs',
+        path: `../../cypress/integration/${answers.componentName}.spec.ts`,
+        templateFile: './component/index.spec.ts.hbs',
         abortOnFail: true,
       });
     }

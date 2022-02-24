@@ -23,6 +23,7 @@
     "chalk": "4.1.2",
     "cross-env": "7.0.3",
     "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "fontfaceobserver": "2.1.0",
@@ -80,7 +81,8 @@
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "cypress": "cypress open"
   },
   "browserslist": {
     "production": [
@@ -135,8 +137,8 @@
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
     "cypress": "9.5.0",
-    "webpack": "^5.69.1",
-    "grommet": "2.20.1"
+    "grommet": "2.20.1",
+    "webpack": "^5.69.1"
   },
   "eslintConfig": {
     "overrides": [

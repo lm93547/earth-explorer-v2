@@ -3,10 +3,8 @@
  * Header
  *
  */
-import React, { memo } from 'react';
+import React, { Dispatch, memo, SetStateAction } from 'react';
 import styled from 'styled-components/macro';
-import { useTranslation } from 'react-i18next';
-import { messages } from './messages';
 import {
   Anchor,
   Box,
@@ -15,13 +13,62 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { MapLocation, Menu as MenuIcon } from 'grommet-icons';
-interface Props {}
+import { Notification, Moon, Sun } from 'grommet-icons';
+import { Button } from 'grommet';
+interface Props {
+  setOpenNotification: Dispatch<SetStateAction<boolean>>;
+  openNotification: boolean;
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+interface DarkModeProps {
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DarkModeButton = (props: DarkModeProps) => {
+  return (
+    <Button
+      id="dark-mode-button"
+      hoverIndicator
+      onClick={() => props.setDarkMode(!props.darkMode)}
+      icon={
+        props.darkMode ? (
+          <Sun color={props.darkMode ? 'white' : 'black'} />
+        ) : (
+          <Moon color={props.darkMode ? 'white' : 'black'} />
+        )
+      }
+    />
+  );
+};
+
+interface MenuButtonProps {
+  setOpenNotification: Dispatch<SetStateAction<boolean>>;
+  openNotification: boolean;
+  darkMode: boolean;
+}
+
+const MenuButton = (props: MenuButtonProps) => {
+  return (
+    <Button
+      id="menu-button"
+      hoverIndicator
+      onClick={() => props.setOpenNotification(!props.openNotification)}
+      icon={<MenuIcon color={props.darkMode ? 'white' : 'black'} />}
+    />
+  );
+};
 
 export const Header = memo((props: Props) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
   return (
-    <GrommetHeader background="dark-2" pad="small" height="xxsmall">
+    <GrommetHeader
+      background={props.darkMode ? 'dark-1' : 'light-2'}
+      pad="small"
+      height="xxsmall"
+      id="header"
+    >
       <Anchor icon={<MapLocation color="brand" />} label="Earth Explorer V2" />
       <ResponsiveContext.Consumer>
         {size =>
@@ -33,22 +80,36 @@ export const Header = memo((props: Props) => {
                 icon={<MenuIcon color="brand" />}
                 items={[
                   {
-                    label: <Box pad="small">Grommet.io</Box>,
-                    href: 'https://v2.grommet.io/',
+                    label: (
+                      <DarkModeButton
+                        darkMode={props.darkMode}
+                        setDarkMode={props.setDarkMode}
+                      />
+                    ),
                   },
                   {
-                    label: <Box pad="small">Feedback</Box>,
-                    href: 'https://github.com/grommet/grommet/issues',
+                    label: (
+                      <MenuButton
+                        darkMode={props.darkMode}
+                        setOpenNotification={props.setOpenNotification}
+                        openNotification={props.openNotification}
+                      />
+                    ),
                   },
+                  {},
                 ]}
               />
             </Box>
           ) : (
             <Box justify="end" direction="row" gap="medium">
-              <Anchor href="https://v2.grommet.io/" label="Grommet.io" />
-              <Anchor
-                href="https://github.com/grommet/grommet/issues"
-                label="Feedback"
+              <DarkModeButton
+                darkMode={props.darkMode}
+                setDarkMode={props.setDarkMode}
+              />
+              <MenuButton
+                darkMode={props.darkMode}
+                setOpenNotification={props.setOpenNotification}
+                openNotification={props.openNotification}
               />
             </Box>
           )
