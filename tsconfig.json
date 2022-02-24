@@ -17,9 +17,10 @@
     "noFallthroughCasesInSwitch": true,
     "jsx": "react",
     "baseUrl": "./src",
-    "types": ["cypress", "cypress/*/*.ts", "webpack-env"]
+    "types": ["webpack-env", "jest"]
   },
   "include": ["src", "**/*.ts"],
+  "exclude": ["cypress"],
   "ts-node": {
     "compilerOptions": {
       "esModuleInterop": true,
