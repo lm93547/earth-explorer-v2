@@ -4,7 +4,6 @@
  *
  */
 import React, { Dispatch, memo, SetStateAction } from 'react';
-import styled from 'styled-components/macro';
 import {
   Anchor,
   Box,
