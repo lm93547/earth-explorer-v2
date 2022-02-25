@@ -4,9 +4,7 @@
  *
  */
 import React, { memo } from 'react';
-import { Box, Button, Collapsible, Heading, Text } from 'grommet';
-import styled from 'styled-components/macro';
-
+import { Box, Collapsible, Text } from 'grommet';
 interface Props {
   openNotification: boolean;
   darkMode: boolean;
@@ -29,5 +27,3 @@ export const Sidebar = memo((props: Props) => {
     </Collapsible>
   );
 });
-
-const Div = styled.div``;

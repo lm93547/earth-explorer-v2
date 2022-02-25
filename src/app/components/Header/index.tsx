@@ -13,7 +13,7 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import { MapLocation, Menu as MenuIcon } from 'grommet-icons';
-import { Notification, Moon, Sun } from 'grommet-icons';
+import { Moon, Sun } from 'grommet-icons';
 import { Button } from 'grommet';
 interface Props {
   setOpenNotification: Dispatch<SetStateAction<boolean>>;
@@ -118,5 +118,3 @@ export const Header = memo((props: Props) => {
     </GrommetHeader>
   );
 });
-
-const Div = styled.div``;
