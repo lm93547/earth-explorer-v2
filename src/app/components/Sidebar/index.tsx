@@ -22,6 +22,7 @@ export const Sidebar = memo((props: Props) => {
         background={props.darkMode ? 'dark-2' : 'light-1'}
         pad="small"
         elevation="small"
+        id="sidebar"
       >
         <Text size="xlarge">Sidebar</Text>
       </Box>
