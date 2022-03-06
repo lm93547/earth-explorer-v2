@@ -17,7 +17,7 @@
     "noFallthroughCasesInSwitch": true,
     "jsx": "react",
     "baseUrl": "./src",
-    "types": ["webpack-env", "jest"]
+    "types": ["webpack-env", "jest", "cypress-image-snapshot", "node"]
   },
   "include": ["src", "**/*.ts"],
   "exclude": ["cypress"],

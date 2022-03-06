@@ -3,6 +3,7 @@ import { Box, Main } from 'grommet';
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Header } from '../../components/Header/Loadable';
+import { MapPage } from '../MapPage/Loadable';
 
 interface Props {
   darkMode: boolean;
@@ -27,7 +28,7 @@ export function HomePage(props: Props) {
         />
         <Box flex direction="row">
           <Box flex align="center" justify="center">
-            Dashboard content goes here, click on the notification icon
+            <MapPage />
           </Box>
           <Sidebar
             openNotification={openNotification}
