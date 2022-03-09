@@ -18,4 +18,4 @@ jobs:
           wait-on: 'http://localhost:3000'
           # wait for 2 minutes for the server to respond
           wait-on-timeout: 120
-          env: updateSnapshots=true
+          # env: updateSnapshots=true
