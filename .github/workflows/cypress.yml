@@ -13,9 +13,10 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          command: yarn cypress --env updateSnapshots=true
           build: yarn build
           start: yarn start
           wait-on: 'http://localhost:3000'
           # wait for 2 minutes for the server to respond
           wait-on-timeout: 120
+            with:
+              env: updateSnapshots=true
