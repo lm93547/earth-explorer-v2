@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 describe('Header Tests', () => {
   it('Visits site and see if the header renders', () => {
     cy.visit('http://localhost:3000/');
